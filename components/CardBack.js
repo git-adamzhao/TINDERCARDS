@@ -10,17 +10,13 @@ import layout from '../layout';
 export default class Card extends Component {
   render() {
     return (
-      <View style={styles.main}>
-  
-        <View style={styles.banner}>
-          <Text style={styles.name}>
-            {this.props.data.name}
-          </Text>
-
-          <Text style={styles.name}>
-            {this.props.data.description}
-          </Text>
-        </View>
+      <View style={styles.main}> 
+        <Text style={styles.name}>
+          {this.props.data.name}
+        </Text>
+        <Text style={styles.name}>
+          {this.props.data.description}
+        </Text>    
       </View>
     )
   }
@@ -35,13 +31,6 @@ const styles = StyleSheet.create({
   image: {
     width: 320,
     height: 470,
-  },
-  banner: {
-    height: 40,
-    width: 320,
-    backgroundColor: 'black',
-    alignItems: 'center',
-    justifyContent: 'center'
   },
   name: {
     fontSize: 22,

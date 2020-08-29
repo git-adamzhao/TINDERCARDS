@@ -61,8 +61,8 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   cardContainer: {
-    width: 320,
-    height: 470,
+    width: 300,
+    height: 400,
   },
   card: {
     width: 320,
@@ -71,16 +71,10 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     shadowColor: 'rgba(0,0,0,0.5)',
     shadowOffset: {
-      width: 0,
-      height: 1,
+      width: 1,
+      height: 5,
     },
     shadowOpacity: 0.5,
-  },
-  card1: {
-    backgroundColor: '#FE474C',
-  },
-  card2: {
-    backgroundColor: '#FEB12C',
   },
   label: {
     lineHeight: 470,
@@ -94,8 +88,8 @@ const styles = StyleSheet.create({
 
 const cards = [
   {
-    name: 'Charlie Cheever',
-    picture: require('../assets/ExpoBlack.png'),
+    name: 'MOONLIGHT',
+    picture: require('../assets/1.jpeg'),
     description: "123"
   },
   {
