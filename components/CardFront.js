@@ -8,7 +8,6 @@ import {
 import layout from '../layout';
 
 export default class Card extends Component {
-
   render() {
     return (
       <View style={styles.main}>
@@ -21,6 +20,10 @@ export default class Card extends Component {
           <Text style={styles.name}>
             {this.props.data.name}
           </Text>
+
+          <Text style={styles.name}>
+            {this.props.data.description}
+          </Text>
         </View>
       </View>
     )
@@ -29,19 +32,17 @@ export default class Card extends Component {
 
 const styles = StyleSheet.create({
   main: {
-    width: layout.window.width - 40,
-    height: layout.window.height / 2,
+    width: 320,
+    height: 470,
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'black'
   },
   image: {
-    width: layout.window.width - 40,
-    height: (layout.window.height / 2) - 40,
+    width: 320,
+    height: 470,
   },
   banner: {
     height: 40,
-    width: layout.window.width - 40,
+    width: 320,
     backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center'

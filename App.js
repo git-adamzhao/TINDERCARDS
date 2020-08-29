@@ -6,7 +6,6 @@ import cacheAssetsAsync from './cacheAssetsAsync';
 import "regenerator-runtime";
 
 export default class App extends React.Component {
-
   state = {
     assetsLoaded: false
   }
@@ -14,7 +13,7 @@ export default class App extends React.Component {
   componentDidMount() {
     this.loadAssetsAsync()
   }
-
+  
   async loadAssetsAsync() {
     try {
       await cacheAssetsAsync({
@@ -37,7 +36,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Deck />
-      </View>
+      </View>   
     );
   }
 }

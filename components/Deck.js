@@ -4,11 +4,14 @@ import {
   Text,
   StyleSheet
 } from 'react-native';
-import Card from './Card';
-import SwipeCards from 'react-native-swipe-cards'; // 0.1.1
+import CardFront from './CardFront';
+import CardBack from './CardBack';
+import SwipeCards from 'react-native-swipe-cards'; 
+
+import CardFlip from 'react-native-card-flip';
+import {TouchableOpacity} from 'react-native';
 
 export default class Deck extends Component {
-
   renderEmpty() {
     return (
       <View style={styles.emptyContainer}>
@@ -32,8 +35,12 @@ export default class Deck extends Component {
   render() {
     return (
       <SwipeCards
-        cards={cards}
-        renderCard={(cardData) => <Card data={cardData} />}
+        cards={cards}   
+        renderCard={(cardData) => <CardFlip style={styles.cardContainer} ref={(card) => this.card = card} >
+        <TouchableOpacity style={styles.card} onPress={() => this.card.flip()} ><CardFront data={cardData} /></TouchableOpacity>
+        <TouchableOpacity style={styles.card} onPress={() => this.card.flip()} ><CardBack data={cardData} /></TouchableOpacity>
+      </CardFlip>}
+        //renderCard={(cardData) => <Card data={cardData} />}
         renderNoMoreCards={this.renderEmpty}
         handleYup={this.handleYup}
         handleNope={this.handleNope}
@@ -44,6 +51,7 @@ export default class Deck extends Component {
   }
 }
 
+
 const styles = StyleSheet.create({
   emptyContainer: {
     alignItems: 'center',
@@ -51,28 +59,63 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 24,
-  }
+  },
+  cardContainer: {
+    width: 320,
+    height: 470,
+  },
+  card: {
+    width: 320,
+    height: 470,
+    backgroundColor: '#FE474C',
+    borderRadius: 5,
+    shadowColor: 'rgba(0,0,0,0.5)',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.5,
+  },
+  card1: {
+    backgroundColor: '#FE474C',
+  },
+  card2: {
+    backgroundColor: '#FEB12C',
+  },
+  label: {
+    lineHeight: 470,
+    textAlign: 'center',
+    fontSize: 55,
+    fontFamily: 'System',
+    color: '#ffffff',
+    backgroundColor: 'transparent',
+  },
 })
 
 const cards = [
   {
     name: 'Charlie Cheever',
-    picture: require('../assets/ExpoBlack.png')
+    picture: require('../assets/ExpoBlack.png'),
+    description: "123"
   },
   {
     name: 'Evan Bacon',
-    picture: require('../assets/ExpoHollow.png')
+    picture: require('../assets/ExpoHollow.png'),
+    description: "456"
   },
   {
     name: 'Jesse Ruder',
-    picture: require('../assets/ExpoBlack.png')
+    picture: require('../assets/ExpoBlack.png'),
+    description: "134"
   },
   {
     name: 'Brent Vatne',
-    picture: require('../assets/ExpoHollow.png')
+    picture: require('../assets/ExpoHollow.png'),
+    description: "123"
   },
   {
     name: 'James Ide',
-    picture: require('../assets/ExpoBlack.png')
+    picture: require('../assets/ExpoBlack.png'),
+    description: "123"
   },
 ]
